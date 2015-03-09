@@ -1,17 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.netbeans.nlbp;
 
 import java.io.IOException;
+import javax.swing.JOptionPane;
 import org.netbeans.core.spi.multiview.MultiViewElement;
 import org.netbeans.core.spi.multiview.text.MultiViewEditorElement;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
+import org.openide.awt.StatusDisplayer;
+import org.openide.filesystems.FileAttributeEvent;
+import org.openide.filesystems.FileChangeListener;
+import org.openide.filesystems.FileEvent;
 import org.openide.filesystems.FileObject;
+import org.openide.filesystems.FileRenameEvent;
 import org.openide.filesystems.MIMEResolver;
 import org.openide.loaders.DataObject;
 import org.openide.loaders.DataObjectExistsException;
@@ -19,6 +20,7 @@ import org.openide.loaders.MultiDataObject;
 import org.openide.loaders.MultiFileLoader;
 import org.openide.util.Lookup;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.WeakListener;
 import org.openide.windows.TopComponent;
 
 @Messages({
@@ -87,11 +89,12 @@ import org.openide.windows.TopComponent;
             position = 1400
     )
 })
-public class LyDataObject extends MultiDataObject {
+public class LyDataObject extends MultiDataObject implements FileChangeListener {
 
     public LyDataObject(FileObject pf, MultiFileLoader loader) throws DataObjectExistsException, IOException {
         super(pf, loader);
         registerEditor("text/x-ly", true);
+        pf.addFileChangeListener(WeakListener.fileChange(this, pf));
     }
 
     @Override
@@ -109,7 +112,36 @@ public class LyDataObject extends MultiDataObject {
     )
     @Messages("LBL_Ly_EDITOR=Source")
     public static MultiViewEditorElement createEditor(Lookup lkp) {
-        return new MultiViewEditorElement(lkp);
+        mve = new MultiViewEditorElement(lkp);
+        return mve;
+    }
+    
+    static MultiViewEditorElement mve = null;
+
+    @Override
+    public void fileChanged(FileEvent fe) {
+        mve.getVisualRepresentation().updateUI();
+        StatusDisplayer.getDefault().setStatusText("Updated the GUI!", 10);
+    }
+
+    @Override
+    public void fileDataCreated(FileEvent fe) {
+    }
+
+    @Override
+    public void fileDeleted(FileEvent fe) {
+    }
+
+    @Override
+    public void fileFolderCreated(FileEvent fe) {
+    }
+
+    @Override
+    public void fileRenamed(FileRenameEvent fre) {
+    }
+
+    @Override
+    public void fileAttributeChanged(FileAttributeEvent fae) {
     }
 
 }

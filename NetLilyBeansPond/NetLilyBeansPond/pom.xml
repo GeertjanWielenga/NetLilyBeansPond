@@ -44,6 +44,46 @@
     </repositories>
     <dependencies>
         <dependency>
+            <groupId>org.lilytool</groupId>
+            <artifactId>LilyPondTool</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!--        <dependency>
+            <groupId>org.jpedal</groupId>
+            <artifactId>jpedal-org</artifactId>
+            <version>1.0</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.sourcetohtml</groupId>
+            <artifactId>sourcetohtml</artifactId>
+            <version>0.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sidekick</groupId>
+            <artifactId>sidekick</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.templates</groupId>
+            <artifactId>velocity-templates</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jedit</groupId>
+            <artifactId>jedit-org</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jedit.console</groupId>
+            <artifactId>console-org</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
             <version>RELEASE80</version>
@@ -96,6 +136,47 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-dialogs</artifactId>
+            <version>RELEASE80</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-editor-lib2</artifactId>
+            <version>RELEASE80</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-extexecution</artifactId>
+            <version>RELEASE80</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-editor</artifactId>
+            <version>RELEASE80</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-compat</artifactId>
+            <version>RELEASE80</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
+            <version>2.7.7</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-csl-api</artifactId>
+            <version>RELEASE80</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-lexer</artifactId>
             <version>RELEASE80</version>
         </dependency>
     </dependencies>

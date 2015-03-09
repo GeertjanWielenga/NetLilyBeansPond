@@ -1,0 +1,31 @@
+TOKEN:keyword:( "while" | "if" | "else")
+TOKEN:operator:( "{" | "}" | "(" | ")" )
+TOKEN:identifier:( ["a"-"z"] ["a"-"z" "0"-"9"]\* )
+TOKEN:whitespace:( [" " "\\t" "\\n" "\\r"]+ )
+
+# parser should ignore whitespaces
+SKIP:whitespace
+
+# definition of grammar
+S = (Statement)\*;
+Statement = WhileStatement | IfStatement | ExpressionStatement;
+WhileStatement = "while" "(" ConditionalExpression ")" Block;
+IfStatement = "if" "(" ConditionalExpression ")" Block;
+Block = "{" (Statement)\* "}";
+ConditionalExpression = <identifier>;
+ExpressionStatement = <identifier>;
+
+# code folding
+FOLD:Block
+
+# navogator support
+NAVIGATOR:WhileStatement:"{$ConditionalExpression}"
+
+# brace completion
+COMPLETE "{:}"
+COMPLETE "(:)"
+
+# indentation support
+INDENT "{:}"
+INDENT "(:)"
+INDENT "\\\\s\*(((if|while)\\\\s\*\\\\(|else\\\\s\*|else\\\\s+if\\\\s\*\\\\(|for\\\\s\*\\\\(.\*\\\\))[\^{;]\*)"

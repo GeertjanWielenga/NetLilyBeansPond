@@ -1,9 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-@TemplateRegistration(folder = "Other", content = "LyTemplate.ly")
+@TemplateRegistrations({
+    @TemplateRegistration(
+            requireProject = false,
+            folder = "LilyPond",
+            displayName = "Happy Birthday, Java!",
+            content = "birthday.ly"),
+    @TemplateRegistration(
+            requireProject = false,
+            folder = "LilyPond",
+            displayName = "Excerpt from 'fibonacci' - Patrick McCarty",
+            content = "fibonacci.ly")
+})
 package org.netbeans.nlbp;
 
 import org.netbeans.api.templates.TemplateRegistration;
+import org.netbeans.api.templates.TemplateRegistrations;
