@@ -10,7 +10,12 @@
             requireProject = false,
             folder = "LilyPond",
             displayName = "Excerpt from 'fibonacci' - Patrick McCarty",
-            content = "fibonacci.ly")
+            content = "fibonacci.ly"),
+    @TemplateRegistration(
+            requireProject = false,
+            folder = "LilyPond",
+            displayName = "Oktober in het Oosterpark - Mientje Deurloo",
+            content = "oosterpark.ly")
 })
 package org.netbeans.nlbp;
 
