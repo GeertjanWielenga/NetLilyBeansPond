@@ -1,0 +1,31 @@
+\header {
+  title = \markup { \italic "Oktober in het Oosterpark" }
+  composer = "Mientje Deurloo"
+}
+
+\paper {
+  indent = #0
+}
+
+\score {
+    \new Staff \with {midiInstrument = #"tuba"} \relative c'' {
+      \clef "treble"
+      \time 3/4
+      \tempo "Mournful" 4 = 160
+       g4 d'4 c4 ges2 
+       aes4 g4 d'4 c4 f2 
+       ges4 g4. ges8 g8 d8 f4.
+       e8 f8 c8 ees8
+       d8 ees4. des4 des4 c4
+    }
+    \addlyrics {
+      rose, while you fade,
+      your pet als re main
+      to drift a long the lake
+      and past the weep ing tree
+      and gent ly
+
+    } 
+    \layout { }
+    \midi { }
+}
